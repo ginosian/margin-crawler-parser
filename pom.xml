@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.margin</groupId>
+    <artifactId>margin-searcher</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <name>Margin</name>
+    <description>Margin</description>
+
+    <properties>
+
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.source>1.8</maven.compiler.source>
+
+        <!-- Margin -->
+        <com.margin.api.common.version>1.0-SNAPSHOT</com.margin.api.common.version>
+        <com.margin.core>1.0-SNAPSHOT</com.margin.core>
+        <com.margin.entity.tools.version>1.0-SNAPSHOT</com.margin.entity.tools.version>
+        <com.margin.location.tools.version>1.0-SNAPSHOT</com.margin.location.tools.version>
+        <com.margin.nlp.version>1.0-SNAPSHOT</com.margin.nlp.version>
+        <com.margin.scheduler.version>1.0-SNAPSHOT</com.margin.scheduler.version>
+        <com.margin.scraper.version>1.0-SNAPSHOT</com.margin.scraper.version>
+        <com.margin.source.models.version>1.0-SNAPSHOT</com.margin.source.models.version>
+        <com.margin.third.party.clients.version>1.0-SNAPSHOT</com.margin.third.party.clients.version>
+        <com.margin.validation.calculation.version>1.0-SNAPSHOT</com.margin.validation.calculation.version>
+
+        <spring.boot.version>2.0.6.RELEASE</spring.boot.version>
+        <spring.boot.jdbc.version>5.1.1.RELEASE</spring.boot.jdbc.version>
+
+        <hibernate.version>5.3.6.Final</hibernate.version>
+        <ehcache.version>3.6.1</ehcache.version>
+        <hikaricp.version>3.2.0</hikaricp.version>
+        <postgresql.version>9.0-801.jdbc4</postgresql.version>
+        <h2.version>1.4.197</h2.version>
+
+        <glassfish.jersey.version>2.27</glassfish.jersey.version>
+        <javax.ws.rs-api.version>2.1</javax.ws.rs-api.version>
+        <javax.validation.version>2.0.1.Final</javax.validation.version>
+
+        <commons.io.version>2.6</commons.io.version>
+        <commons.collections4.version>4.2</commons.collections4.version>
+        <commons.lang3.version>3.8.1</commons.lang3.version>
+        <common.beanutils.version>1.9.3</common.beanutils.version>
+        <commons-validator.version>1.6</commons-validator.version>
+        <google.guava.collections.version>r03</google.guava.collections.version>
+        <jbcrypt.version>0.4</jbcrypt.version>
+
+        <quartz.version>2.3.0</quartz.version>
+        <lombok.version>1.18.2</lombok.version>
+        <orika.version>1.5.1</orika.version>
+        <swagger.jersey2.jaxrs.version>1.5.21</swagger.jersey2.jaxrs.version>
+        <swagger.models.version>1.5.21</swagger.models.version>
+        <joda-time.version>2.10</joda-time.version>
+
+        <!-- plugins -->
+        <gitflow.plugin.version>1.10.0</gitflow.plugin.version>
+
+        <!-- Test -->
+        <junit.version>4.12</junit.version>
+        <mockito.version>1.10.19</mockito.version>
+    </properties>
+
+    <profiles>
+        <profile>
+            <id>development-local</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+        </profile>
+
+        <profile>
+            <id>production</id>
+        </profile>
+    </profiles>
+
+    <modules>
+        <module>margin-core-queue</module>
+        <module>margin-core-entities</module>
+        <module>margin-location-tools</module>
+        <module>margin-nlp</module>
+        <module>margin-scraper</module>
+        <module>margin-entity-tools</module>
+        <module>margin-source-models</module>
+        <module>margin-api-common</module>
+        <module>margin-validation-calculation</module>
+        <module>margin-core-entity-versioning</module>
+        <module>margin-job-scheduler</module>
+        <module>margin-internal-ui</module>
+        <module>margin-scheduler-common</module>
+        <module>margin-tmp-loader</module>
+        <module>margin-common</module>
+    </modules>
+</project>

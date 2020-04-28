@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <groupId>com.margin</groupId>
+    <artifactId>margin-entity-tools</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0-SNAPSHOT</version>
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <modules>
+        <module>margin-entity-builder</module>
+        <module>margin-entity-merger</module>
+        <module>margin-entity-source-versioning</module>
+        <module>margin-entity-tools-client</module>
+        <module>margin-entity-tools-facade</module>
+        <module>margin-entity-tools-web</module>
+        <module>margin-entity-tools-postgres</module>
+        <module>margin-entity-tools-mongo</module>
+        <module>margin-entity-tools-elastic</module>
+        <module>margin-entity-tools-service</module>
+    </modules>
+
+    <properties>
+
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.source>1.8</maven.compiler.source>
+
+        <!-- Margin -->
+        <com.margin.api.common.version>1.0-SNAPSHOT</com.margin.api.common.version>
+        <com.margin.core>1.0-SNAPSHOT</com.margin.core>
+        <com.margin.entity.tools.version>1.0-SNAPSHOT</com.margin.entity.tools.version>
+        <com.margin.location.tools.version>1.0-SNAPSHOT</com.margin.location.tools.version>
+        <com.margin.nlp.version>1.0-SNAPSHOT</com.margin.nlp.version>
+        <com.margin.scheduler.version>1.0-SNAPSHOT</com.margin.scheduler.version>
+        <com.margin.scraper.version>1.0-SNAPSHOT</com.margin.scraper.version>
+        <com.margin.source.models.version>1.0-SNAPSHOT</com.margin.source.models.version>
+        <com.margin.third.party.clients.version>1.0-SNAPSHOT</com.margin.third.party.clients.version>
+        <com.margin.validation.calculation.version>1.0-SNAPSHOT</com.margin.validation.calculation.version>
+        <com.margin.tmp.loader.version>1.0-SNAPSHOT</com.margin.tmp.loader.version>
+
+        <spring.boot.version>2.0.6.RELEASE</spring.boot.version>
+        <spring.data.elasticsearch.version>3.1.2.RELEASE</spring.data.elasticsearch.version>
+        <spring.boot.jdbc.version>5.1.1.RELEASE</spring.boot.jdbc.version>
+
+        <hibernate.version>5.3.6.Final</hibernate.version>
+        <ehcache.version>3.6.1</ehcache.version>
+        <hikaricp.version>3.2.0</hikaricp.version>
+        <postgresql.version>9.0-801.jdbc4</postgresql.version>
+        <h2.version>1.4.197</h2.version>
+
+        <glassfish.jersey.version>2.27</glassfish.jersey.version>
+        <javax.ws.rs-api.version>2.1</javax.ws.rs-api.version>
+        <javax.validation.version>2.0.1.Final</javax.validation.version>
+
+        <commons.io.version>2.6</commons.io.version>
+        <commons.collections4.version>4.2</commons.collections4.version>
+        <commons.lang3.version>3.8.1</commons.lang3.version>
+        <common.beanutils.version>1.9.3</common.beanutils.version>
+        <commons-validator.version>1.6</commons-validator.version>
+        <google.guava.collections.version>r03</google.guava.collections.version>
+        <jbcrypt.version>0.4</jbcrypt.version>
+
+        <quartz.version>2.2.1</quartz.version>
+        <lombok.version>1.18.2</lombok.version>
+        <orika.version>1.5.1</orika.version>
+        <swagger.jersey2.jaxrs.version>1.5.21</swagger.jersey2.jaxrs.version>
+        <swagger.models.version>1.5.21</swagger.models.version>
+        <joda-time.version>2.10</joda-time.version>
+
+        <!-- plugins -->
+        <gitflow.plugin.version>1.10.0</gitflow.plugin.version>
+
+        <!-- Test -->
+        <junit.version>4.12</junit.version>
+        <mockito.version>1.10.19</mockito.version>
+
+        <mongo.java.driver.version>3.8.2</mongo.java.driver.version>
+    </properties>
+
+    <dependencies>
+        <!-- region Margin -->
+        <dependency>
+            <groupId>com.margin</groupId>
+            <artifactId>margin-source-models</artifactId>
+            <version>${com.margin.source.models.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.margin</groupId>
+            <artifactId>margin-common-misc</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <!-- endregion -->
+
+        <!-- region COMMON -->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>${commons.lang3.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava-collections</artifactId>
+            <version>${google.guava.collections.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>ma.glasnost.orika</groupId>
+            <artifactId>orika-core</artifactId>
+            <version>${orika.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <!-- endregion -->
+
+        <!-- region TEST -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-all</artifactId>
+            <version>${mockito.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <!-- endregion -->
+    </dependencies>
+
+</project>

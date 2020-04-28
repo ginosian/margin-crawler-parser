@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mongo="http://www.springframework.org/schema/data/mongo"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/data/mongo http://www.springframework.org/schema/data/mongo/spring-mongo.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+
+    <context:property-placeholder location="classpath:database.properties" local-override="true"
+                                  ignore-unresolvable="true"/>
+
+    <context:component-scan base-package="com.margin"/>
+
+    <mongo:repositories base-package="com.margin.repository"/>
+
+    <mongo:db-factory id="mongoDbFactory" dbname="${mongo.db.name}" mongo-ref="mongo"/>
+
+
+    <bean id="mongoTemplate" class="org.springframework.data.mongodb.core.MongoTemplate" primary="true">
+        <constructor-arg name="mongoDbFactory" ref="mongoDbFactory"/>
+        <property name="writeConcern" ref="writeConcern"/>
+    </bean>
+
+    <bean id="secondaryReadTemplate" class="org.springframework.data.mongodb.core.MongoTemplate">
+        <constructor-arg name="mongoDbFactory" ref="mongoDbFactory"/>
+        <property name="writeConcern" ref="writeConcern"/>
+        <property name="readPreference" ref="readPreference"/>
+    </bean>
+
+    <beans profile="!test">
+        <bean name="mongoServerAddress" class="com.mongodb.ServerAddress">
+            <constructor-arg name="host" value="${mongo.db.host}" />
+            <constructor-arg name="port" value="${mongo.db.port}"/>
+        </bean>
+
+        <bean id="mongo" class="com.mongodb.MongoClient">
+            <constructor-arg name="addr" ref="mongoServerAddress"/>
+        </bean>
+    </beans>
+
+</beans>

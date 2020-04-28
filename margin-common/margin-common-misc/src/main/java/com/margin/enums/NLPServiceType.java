@@ -1,0 +1,11 @@
+package com.margin.enums;
+
+public enum NLPServiceType {
+    TRANSLATION,
+    TRANSLITERATION,
+    PHONETIC_ENCODING,
+    LANGUAGE_DETECTION,
+    GENDER_DETECTION,
+    NAME_TYPE_DETECTION,
+    NODE_TYPE_DETECTION
+}
